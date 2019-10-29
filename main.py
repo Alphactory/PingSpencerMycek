@@ -2,21 +2,21 @@
 Slack bot for pinging Spencer Mycek
 
 -t
--time
+--time
 number of seconds between pings. not fractional. default 3600 (1 hour)
 
 -m
--message
+--message
 custom message to be displayed. default " Bring me the fucking toga"
 
 -c
--channel
--slackchannel
+--channel
+--slackchannel
 custom slack channel. default #general
 
 -n
--name
--username
+--name
+--username
 custom user to ping in the form of their member ID. default Spencer's id
 '''
 
@@ -46,16 +46,16 @@ def parseargs():
 	for i in range (1, len(sys.argv)-1):
 		arg = sys.argv[i]
 		val = sys.argv[i+1]
-		if arg == "-n" or arg == "-name" or arg == "-username":
+		if arg == "-n" or arg == "--name" or arg == "--username":
 			usertag = val
 			print("set usertag to "+val)
-		if arg == "-m" or arg == "-message":
+		if arg == "-m" or arg == "--message":
 			message = val
 			print("set message to "+val)
-		if arg == "-c" or arg == "-channel" or arg == "-slackchannel":
+		if arg == "-c" or arg == "--channel" or arg == "--slackchannel":
 			slackchannel = val
 			print("set slackchannel to "+val)
-		if arg == "-t" or arg == "-time" or arg == "-seconds":
+		if arg == "-t" or arg == "--time" or arg == "--seconds":
 			seconds = str(val)
 			print("set time to "+val)
 	return [usertag, message, slackchannel, seconds]
